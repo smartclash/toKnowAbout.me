@@ -1,0 +1,31 @@
+{
+  "name": "toknowabout.me",
+  "version": "1.0.0",
+  "description": "Make quizzes, share with your friends, know how much they know about you",
+  "main": "dist/Index.js",
+  "repository": "https://github.com/smartclash/toKnowAbout.Me",
+  "author": "xXAlphaManXx",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "twig": "^1.12.0",
+    "typescript": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.1",
+    "@types/express": "^4.16.0",
+    "@types/express-session": "^1.15.11",
+    "@types/node": "^10.11.4",
+    "@types/twig": "^1.12.1",
+    "nodemon": "^1.18.4"
+  },
+  "scripts": {
+    "c": "tsc -p tsconfig.json",
+    "c-w": "tsc -w -p tsconfig.json",
+    "s": "node .",
+    "s-w": "nodemon -e js,ts,twig,css ."
+  }
+}
