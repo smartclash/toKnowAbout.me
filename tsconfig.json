@@ -1,0 +1,12 @@
+{
+    "include": [
+        "src/**/*.ts"
+    ],
+    "compilerOptions": {
+        "outDir": "dist",
+        "lib": [
+            "es2015"
+        ]
+    },
+    "compileOnSave": true,
+}

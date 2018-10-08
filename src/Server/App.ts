@@ -3,12 +3,15 @@ import * as expressSession from 'express-session';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import {join} from 'path';
+import Main from './Routes/Web/Main';
 
-export default class App {
+class App {
     private app: express.Express;
+    private router: express.Router;
 
     constructor() {
         this.app = express();
+        this.router = express.Router();
 
         this.registerMiddlewares();
         this.registerRoutes();
@@ -44,12 +47,14 @@ export default class App {
     }
 
     private registerRoutes() {
-
+        return this.app.use(new Main(this.router).bootstrap());
     }
 
-    public startAwesomeness() {
-        return this.app.listen(8080, () => {
-            console.log('Listening on port 8080');
+    public startAwesomeness(port: number) {
+        return this.app.listen(port, () => {
+            console.log('Listening on port', port);
         });
     }
 }
+
+export default App;
