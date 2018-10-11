@@ -15,7 +15,7 @@ class Main {
 
     private index(): Router {
         return this.route.get('/', (req: Request, res: Response) => {
-            res.send('HELLO WORLD');
+            res.render('Main.twig');
         });
     }
 }

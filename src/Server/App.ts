@@ -2,8 +2,9 @@ import * as express from 'express';
 import * as expressSession from 'express-session';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
-import {join} from 'path';
+import { join } from 'path';
 import Main from './Routes/Web/Main';
+import { Server } from 'net';
 
 class App {
     private app: express.Express;
@@ -19,7 +20,7 @@ class App {
 
     private registerMiddlewares(): express.Express {
         let sessionConfig: expressSession.SessionOptions = {
-            secret: 'eO404&98Fij7z96574MsAO330E535WfG',
+            secret: 'i00ys3PXqczkhUURY4FmoPxP2KC2pNNj',
             resave: false,
             saveUninitialized: true,
             cookie: {
@@ -33,7 +34,7 @@ class App {
         }
 
         this.app.use(bodyParser.urlencoded({ extended: false }));
-        this.app.use(cookieParser('eO404&98Fij7z96574MsAO330E535WfG'));
+        this.app.use(cookieParser('i00ys3PXqczkhUURY4FmoPxP2KC2pNNj'));
         this.app.use(expressSession(sessionConfig));
 
         this.app.set('views', join(__dirname, '../..', 'src/Resources/Views'));
@@ -46,11 +47,11 @@ class App {
         return this.app;
     }
 
-    private registerRoutes() {
+    private registerRoutes(): express.Express {
         return this.app.use(new Main(this.router).bootstrap());
     }
 
-    public startAwesomeness(port: number) {
+    public startAwesomeness(port: number): Server {
         return this.app.listen(port, () => {
             console.log('Listening on port', port);
         });
