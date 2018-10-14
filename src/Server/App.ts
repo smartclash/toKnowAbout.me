@@ -6,6 +6,9 @@ import { join } from 'path';
 import Main from './Routes/Web/Main';
 import { Server } from 'net';
 
+/**
+ * This is a class.
+ */
 class App {
     private app: express.Express;
     private router: express.Router;
